@@ -120,14 +120,15 @@ async function partTwo() {
 const partOneBench = [];
 const partTwoBench = [];
 
-for (let i = 0;i<1; i++) {
+for (let i = 0;i<10; i++) {
     const t1 = performance.now()
     partOne();
     partOneBench.push(performance.now() - t1);
  
     const t2 = performance.now()
     partTwo();
-    partTwoBench.push(performance.now() - t2); 
+    partTwoBench.push(performance.now() - t2);
+    console.log('Part 2, Run',i,'took :',performance.now()-t2) 
 }
 
 function avgTime(list: number[]) {
@@ -136,5 +137,5 @@ function avgTime(list: number[]) {
     })
     return totalTime / list.length
 }
-console.log('Part One avg time: ',avgTime(partOneBench))
-console.log('Part Two avg time: ',avgTime(partTwoBench))
+console.log('Part One avg time: ',avgTime(partOneBench),'ms')
+console.log('Part Two avg time: ',avgTime(partTwoBench),'ms')
